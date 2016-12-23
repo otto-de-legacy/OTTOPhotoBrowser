@@ -20,5 +20,5 @@ func onMainThread(block: @escaping () -> ()) {
 
 func debugPrint(_ s: String) {
     // uncomment to enable debug printing
-    print(s)
+    // print(s)
 }
