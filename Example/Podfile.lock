@@ -1,0 +1,22 @@
+PODS:
+  - OTTOPhotoBrowser (0.1.0):
+    - SDWebImage
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+
+DEPENDENCIES:
+  - OTTOPhotoBrowser (from `../`)
+  - SDWebImage
+
+EXTERNAL SOURCES:
+  OTTOPhotoBrowser:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  OTTOPhotoBrowser: 68c7a0142b9eca59fc67d7719d6a2a7112d02fe7
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+
+PODFILE CHECKSUM: 05190a4c3243214386b1d18530180a9b65c60c0e
+
+COCOAPODS: 1.2.0.beta.1

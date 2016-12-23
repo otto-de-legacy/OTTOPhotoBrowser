@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'OTTOPhotoBrowser_Example' do
+  pod 'OTTOPhotoBrowser', :path => '../'
+  pod 'SDWebImage'
+
+  target 'OTTOPhotoBrowser_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

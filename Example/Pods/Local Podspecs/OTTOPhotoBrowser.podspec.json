@@ -1,0 +1,27 @@
+{
+  "name": "OTTOPhotoBrowser",
+  "version": "0.1.0",
+  "summary": "A short description of OTTOPhotoBrowser.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/OTTOPhotoBrowser",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Lukas Zielinski": "lukas.zielinski@otto.de"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/OTTOPhotoBrowser.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "OTTOPhotoBrowser/Classes/**/*",
+  "dependencies": {
+    "SDWebImage": [
+
+    ]
+  }
+}

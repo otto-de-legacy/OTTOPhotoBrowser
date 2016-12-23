@@ -1,0 +1,6 @@
+framework module OTTOPhotoBrowser {
+  umbrella header "OTTOPhotoBrowser-umbrella.h"
+
+  export *
+  module * { export * }
+}

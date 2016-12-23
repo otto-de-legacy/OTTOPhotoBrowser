@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>OTTOPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-OTTOPhotoBrowser_Example.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-OTTOPhotoBrowser_Tests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0F7BE24B66B4B8797A403A71CA1B6BD3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>75A7245B4BE7973FA937C87F5B54417B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>86ED187EEC7B04E0E4B6B511C8B40323</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E59312911022A15D1FA899E83E3BFE04</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
