@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate, OTTOTapDetectingViewDelegate, OTTOTapDetecingImageViewDelegate {
+class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     
     var photo: OTTOPhoto? {
         didSet {
@@ -17,8 +17,8 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate, OTTOTapDetectin
     }
     
     weak var photoBrowserView: OTTOPhotoBrowserView?
-    private let tapView: OTTOTapDetectingView
-    private let photoImageView: OTTOTapDetectingImageView
+    private let tapView: UIView
+    private let photoImageView: UIImageView
     private let progressView: UIProgressView
     private var isPinchoutDetected = false
     private var tapTimer: Timer?
@@ -39,18 +39,28 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate, OTTOTapDetectin
         
         self.photoBrowserView = photoBrowserView
     
-        tapView = OTTOTapDetectingView(frame: CGRect.zero)
-        photoImageView = OTTOTapDetectingImageView(frame: CGRect.zero)
+        tapView = UIView(frame: CGRect.zero)
+        photoImageView = UIImageView(frame: CGRect.zero)
         progressView = UIProgressView(frame: CGRect.zero)
         
         super.init(frame: CGRect.zero)
         
-        tapView.tapDelegate = self
         tapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tapView.backgroundColor = UIColor.clear
+        let tapViewSingleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(gestureRecognizer:)))
+        let tapViewDoubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(gestureRecognizer:)))
+        tapViewDoubleTapRecognizer.numberOfTapsRequired = 2
+        tapViewSingleTapRecognizer.require(toFail: tapViewDoubleTapRecognizer)
+        tapView.addGestureRecognizer(tapViewSingleTapRecognizer)
+        tapView.addGestureRecognizer(tapViewDoubleTapRecognizer)
         
-        photoImageView.tapDelegate = self
         photoImageView.backgroundColor = UIColor.clear
+        let imageViewSingleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(gestureRecognizer:)))
+        let imageViewDoubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(gestureRecognizer:)))
+        imageViewDoubleTapRecognizer.numberOfTapsRequired = 2
+        imageViewSingleTapRecognizer.require(toFail: imageViewDoubleTapRecognizer)
+        photoImageView.addGestureRecognizer(imageViewSingleTapRecognizer)
+        photoImageView.addGestureRecognizer(imageViewDoubleTapRecognizer)
         
         let isLandscape = UIDeviceOrientationIsLandscape(UIDevice.current.orientation)
         let screenBounds = UIScreen.main.bounds
@@ -177,12 +187,12 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate, OTTOTapDetectin
     
     // MARK: Tap Detection
     
-    func handleSingleTap() {
-        assert(Thread.isMainThread)
+    func handleSingleTap(gestureRecognizer: UITapGestureRecognizer) {
         self.photoBrowserView?.onTap()
     }
     
-    private func handleDoubleTap(_ touchPoint: CGPoint) {
+    func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
+        let touchPoint = gestureRecognizer.location(in: gestureRecognizer.view)
         if zoomScale == maximumZoomScale {
             setZoomScale(minimumZoomScale, animated: true)
         } else {
@@ -190,33 +200,5 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate, OTTOTapDetectin
         }
         
         photoBrowserView?.onZoomedWithDoubleTap()
-    }
-    
-    // MARK: Image View Tap Detection
-    
-    func imageView(imageView: UIImageView, SingleTapDetected: UITouch) {
-        // could be a double tap, wait for a moment before reporting
-        tapTimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(handleSingleTap), userInfo: nil, repeats: false)
-    }
-    
-    func imageView(imageView: UIImageView, DoubleTapDetected touch: UITouch) {
-        tapTimer?.invalidate() // dismiss reporting of single tap
-        tapTimer = nil
-        
-        handleDoubleTap(touch.location(in: imageView))
-    }
-    
-    // MARK: Background View Tap Detection
-    
-    func view(view: UIView, SingleTapDetected: UITouch) {
-        // could be a double tap, wait for a moment before reporting
-        tapTimer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(handleSingleTap), userInfo: nil, repeats: false)
-    }
-    
-    func view(view: UIView, DoubleTapDetected touch: UITouch) {
-        tapTimer?.invalidate() // dismiss reporting of single tap
-        tapTimer = nil
-        
-        handleDoubleTap(touch.location(in: view))
     }
 }

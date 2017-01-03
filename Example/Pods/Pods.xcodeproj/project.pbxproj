@@ -10,7 +10,6 @@
 		03494F623B0E8707BFA8D7172873EB77 /* OTTOPhotoBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9855483598C53DB6A71C9F78AC2B0D /* OTTOPhotoBrowserView.swift */; };
 		084C3D3E147D8442EDDE9AC6194C8B7E /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 662CA71788F5C0AA42595DEAA6D1DE50 /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A382A6B3E2DDEEB8257ECB475E36ADE /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CCCA9C24210A383940066EDE09C5C12 /* UIImageView+WebCache.m */; };
-		0A45C036C01467C762690E316271C29C /* OTTOTapDetectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA624BF4381D0358FE9B44BD7A5F5B5 /* OTTOTapDetectingView.swift */; };
 		11F2CD072D232CBE55E201FCD07E88B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E148CD5DBCC7FD36DA8D2A62D38AF8 /* Foundation.framework */; };
 		19F5D5658A60B89CE035096A85A5CBDE /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 335701ADD57C030EA976D4225BBE196C /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FFF8BF42E9D163F6F2D1E4331A9FAE3 /* OTTOPhotoBrowser-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74F7F804CF89DBD74313A2541D785 /* OTTOPhotoBrowser-dummy.m */; };
@@ -27,7 +26,6 @@
 		5E4C1B665265ACB4760AF95EA46C5146 /* Pods-OTTOPhotoBrowser_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A99EA9270B6B39E749773E4EC4F66C71 /* Pods-OTTOPhotoBrowser_Tests-dummy.m */; };
 		5F1C5D1D805A932ACE43F374483B1FD9 /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = C628427AA1BFAA60D1D96C83FD061B51 /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		643A1A572E64B74CC62588A06375EDCE /* OTTOPhotoBrowser-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C9569EA4312D27C864D25C2C32A5D798 /* OTTOPhotoBrowser-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6A140ECD1619F1D5B3DA3C7A685E1EB7 /* OTTOTapDetectingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112B32D8C182077BC37771DC7AC2163E /* OTTOTapDetectingImageView.swift */; };
 		754A39FE4A2EAEB896A5D4A071C03218 /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 130D53DA86C640F84E5039E198719799 /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79D10D7D54CFBD7E29609A8F1EDF9C3A /* Pods-OTTOPhotoBrowser_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FD7B22351B5EC7F90CD582362C3564D /* Pods-OTTOPhotoBrowser_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B9FB27D70D43E15F04A59E1884F5A7E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6894425F399FC6F245E7966860F01C14 /* ImageIO.framework */; };
@@ -86,7 +84,6 @@
 /* Begin PBXFileReference section */
 		018F87229B383759656946934A262FC8 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SDWebImage.modulemap; sourceTree = "<group>"; };
 		0537C0FD0A245FAEA28EB26E356736FE /* Pods_OTTOPhotoBrowser_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTTOPhotoBrowser_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		112B32D8C182077BC37771DC7AC2163E /* OTTOTapDetectingImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTOTapDetectingImageView.swift; sourceTree = "<group>"; };
 		113FC6ACC96F49FBA6EDFAA1D8CBC9A0 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
 		130D53DA86C640F84E5039E198719799 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		175215309D904D6DBF5332A27289CC5E /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
@@ -117,7 +114,6 @@
 		78C33835C489AC22808A30F445CC88B6 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		88085076FA0F97E0F3ADB8E1AA3E861C /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
 		8B6581329ACBA776A17D40F9B98C7176 /* Pods-OTTOPhotoBrowser_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OTTOPhotoBrowser_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8BA624BF4381D0358FE9B44BD7A5F5B5 /* OTTOTapDetectingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTOTapDetectingView.swift; sourceTree = "<group>"; };
 		8C2C6B626558FFEE8CA23A10FB167E85 /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
 		8F9DFBBA4F477EE9DE0C409A4DD94CD4 /* Pods-OTTOPhotoBrowser_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-OTTOPhotoBrowser_Example.modulemap"; sourceTree = "<group>"; };
 		90429730142763359E85DD5BD5D80B29 /* OTTOPhoto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTOPhoto.swift; sourceTree = "<group>"; };
@@ -207,8 +203,6 @@
 				90429730142763359E85DD5BD5D80B29 /* OTTOPhoto.swift */,
 				A34BF9131EB212EA69B7A03F75F25F15 /* OTTOPhotoBrowserDelegate.swift */,
 				CE9855483598C53DB6A71C9F78AC2B0D /* OTTOPhotoBrowserView.swift */,
-				112B32D8C182077BC37771DC7AC2163E /* OTTOTapDetectingImageView.swift */,
-				8BA624BF4381D0358FE9B44BD7A5F5B5 /* OTTOTapDetectingView.swift */,
 				AE32888AB4E02944C618477A1CDCF81A /* OTTOZoomingScrollView.swift */,
 			);
 			path = Classes;
@@ -592,8 +586,6 @@
 				1FFF8BF42E9D163F6F2D1E4331A9FAE3 /* OTTOPhotoBrowser-dummy.m in Sources */,
 				30FEA8F34D804A0030F1A20DF52C63AC /* OTTOPhotoBrowserDelegate.swift in Sources */,
 				03494F623B0E8707BFA8D7172873EB77 /* OTTOPhotoBrowserView.swift in Sources */,
-				6A140ECD1619F1D5B3DA3C7A685E1EB7 /* OTTOTapDetectingImageView.swift in Sources */,
-				0A45C036C01467C762690E316271C29C /* OTTOTapDetectingView.swift in Sources */,
 				8EDC4ADE7D20A729B05945A4ED305BE2 /* OTTOZoomingScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
