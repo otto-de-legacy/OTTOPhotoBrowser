@@ -14,15 +14,6 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		800DC11F1E0C1C25007489F4 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 800DC11B1E0C1C25007489F4 /* .gitkeep */; };
-		80CB43F01E0D6959006AC84F /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB43E81E0D6811006AC84F /* Notifications.swift */; };
-		80CB43F11E0D6959006AC84F /* OTTOPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB43E91E0D6811006AC84F /* OTTOPhoto.swift */; };
-		80CB43F21E0D6959006AC84F /* OTTOPhotoBrowserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB43EA1E0D6811006AC84F /* OTTOPhotoBrowserDelegate.swift */; };
-		80CB43F31E0D6959006AC84F /* OTTOPhotoBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB43EB1E0D6811006AC84F /* OTTOPhotoBrowserView.swift */; };
-		80CB43F41E0D6959006AC84F /* OTTOTapDetectingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB43EC1E0D6811006AC84F /* OTTOTapDetectingImageView.swift */; };
-		80CB43F51E0D6959006AC84F /* OTTOTapDetectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB43ED1E0D6811006AC84F /* OTTOTapDetectingView.swift */; };
-		80CB43F61E0D6959006AC84F /* OttoZoomingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB43EE1E0D6811006AC84F /* OttoZoomingScrollView.swift */; };
-		80CB43F71E0D6959006AC84F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CB43EF1E0D6811006AC84F /* Util.swift */; };
 		C1534FA2B9CE8055D29D5E47 /* Pods_OTTOPhotoBrowser_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA6076049679E24008464C5 /* Pods_OTTOPhotoBrowser_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,16 +45,6 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7F3E73C1195D3FB69235F4E3 /* Pods_OTTOPhotoBrowser_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTTOPhotoBrowser_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		800DC11B1E0C1C25007489F4 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		80CB43E71E0D6811006AC84F /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		80CB43E81E0D6811006AC84F /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		80CB43E91E0D6811006AC84F /* OTTOPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOPhoto.swift; sourceTree = "<group>"; };
-		80CB43EA1E0D6811006AC84F /* OTTOPhotoBrowserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOPhotoBrowserDelegate.swift; sourceTree = "<group>"; };
-		80CB43EB1E0D6811006AC84F /* OTTOPhotoBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOPhotoBrowserView.swift; sourceTree = "<group>"; };
-		80CB43EC1E0D6811006AC84F /* OTTOTapDetectingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOTapDetectingImageView.swift; sourceTree = "<group>"; };
-		80CB43ED1E0D6811006AC84F /* OTTOTapDetectingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTTOTapDetectingView.swift; sourceTree = "<group>"; };
-		80CB43EE1E0D6811006AC84F /* OttoZoomingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OttoZoomingScrollView.swift; sourceTree = "<group>"; };
-		80CB43EF1E0D6811006AC84F /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		D5878C3BC790195E3EBD9571 /* OTTOPhotoBrowser.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = OTTOPhotoBrowser.podspec; path = ../OTTOPhotoBrowser.podspec; sourceTree = "<group>"; };
 		F16426738F6C87BDFBCD69C8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,8 +83,6 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				800DC11A1E0C1C25007489F4 /* Assets */,
-				80CB43E61E0D6811006AC84F /* Classes */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for OTTOPhotoBrowser */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -169,31 +148,6 @@
 				02CC7B3170E38F5FD576899C /* LICENSE */,
 			);
 			name = "Podspec Metadata";
-			sourceTree = "<group>";
-		};
-		800DC11A1E0C1C25007489F4 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				800DC11B1E0C1C25007489F4 /* .gitkeep */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		80CB43E61E0D6811006AC84F /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				80CB43E71E0D6811006AC84F /* .gitkeep */,
-				80CB43E81E0D6811006AC84F /* Notifications.swift */,
-				80CB43E91E0D6811006AC84F /* OTTOPhoto.swift */,
-				80CB43EA1E0D6811006AC84F /* OTTOPhotoBrowserDelegate.swift */,
-				80CB43EB1E0D6811006AC84F /* OTTOPhotoBrowserView.swift */,
-				80CB43EC1E0D6811006AC84F /* OTTOTapDetectingImageView.swift */,
-				80CB43ED1E0D6811006AC84F /* OTTOTapDetectingView.swift */,
-				80CB43EE1E0D6811006AC84F /* OttoZoomingScrollView.swift */,
-				80CB43EF1E0D6811006AC84F /* Util.swift */,
-			);
-			name = Classes;
-			path = ../OTTOPhotoBrowser/Classes;
 			sourceTree = "<group>";
 		};
 		C60C33DAE2ED1C89512E8597 /* Frameworks */ = {
@@ -297,7 +251,6 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
-				800DC11F1E0C1C25007489F4 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,15 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80CB43F31E0D6959006AC84F /* OTTOPhotoBrowserView.swift in Sources */,
-				80CB43F01E0D6959006AC84F /* Notifications.swift in Sources */,
-				80CB43F51E0D6959006AC84F /* OTTOTapDetectingView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
-				80CB43F11E0D6959006AC84F /* OTTOPhoto.swift in Sources */,
-				80CB43F21E0D6959006AC84F /* OTTOPhotoBrowserDelegate.swift in Sources */,
-				80CB43F41E0D6959006AC84F /* OTTOTapDetectingImageView.swift in Sources */,
-				80CB43F71E0D6959006AC84F /* Util.swift in Sources */,
-				80CB43F61E0D6959006AC84F /* OttoZoomingScrollView.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

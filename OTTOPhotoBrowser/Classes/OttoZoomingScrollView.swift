@@ -24,7 +24,6 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate, OTTOTapDetectin
     private var tapTimer: Timer?
     
     func prepareForReuse() {
-        debugPrint("prepare for reuse")
         self.photo = nil
     }
     
@@ -53,11 +52,12 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate, OTTOTapDetectin
         photoImageView.tapDelegate = self
         photoImageView.backgroundColor = UIColor.clear
         
+        let isLandscape = UIDeviceOrientationIsLandscape(UIDevice.current.orientation)
         let screenBounds = UIScreen.main.bounds
-        let isLandscape = UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight
-        let screenWidth : CGFloat = isLandscape ?  screenBounds.height : screenBounds.width
-        let screenHeight : CGFloat = isLandscape ? screenBounds.width : screenBounds.height
+        let screenWidth = isLandscape ?  screenBounds.height : screenBounds.width
+        let screenHeight = isLandscape ? screenBounds.width : screenBounds.height
         let progressViewFrame = CGRect(x: (screenWidth - 35) / 2, y: (screenHeight - 35) - 2, width: 35, height: 35)
+        // TODO: optimize positioning
         progressView.frame = progressViewFrame
         progressView.tag = 101
         
@@ -120,13 +120,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate, OTTOTapDetectin
         let xScale = boundsSize.width / imageSize.width;    // the scale needed to perfectly fit the image width-wise
         let yScale = boundsSize.height / imageSize.height;  // the scale needed to perfectly fit the image height-wise
         let minScale = min(xScale, yScale);                 // use minimum of these to allow the image to become fully visible
-        var maxScale: CGFloat = 4.0; // Allow double scale
-        
-        maxScale = UIScreen.main.scale
-        if maxScale < minScale {
-            maxScale = minScale * 2
-        }
-        
+        let maxScale = max(UIScreen.main.scale, minScale * 2)
         
         self.maximumZoomScale = maxScale;
         self.minimumZoomScale = minScale;
@@ -156,9 +150,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate, OTTOTapDetectin
             frameToCenter.origin.y = 0;
         }
         
-        if !photoImageView.frame.equalTo(frameToCenter) {
-            photoImageView.frame = frameToCenter
-        }
+        photoImageView.frame = frameToCenter
     }
     
     // MARK: UIScrollViewDelegate
@@ -186,9 +178,8 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate, OTTOTapDetectin
     // MARK: Tap Detection
     
     func handleSingleTap() {
-        onMainThread {
-            self.photoBrowserView?.onTap()
-        }
+        assert(Thread.isMainThread)
+        self.photoBrowserView?.onTap()
     }
     
     private func handleDoubleTap(_ touchPoint: CGPoint) {

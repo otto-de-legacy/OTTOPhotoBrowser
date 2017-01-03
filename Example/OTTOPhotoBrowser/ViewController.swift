@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OTTOPhotoBrowser
 
 class ViewController: UIViewController, OTTOPhotoBrowserDelegate {
 

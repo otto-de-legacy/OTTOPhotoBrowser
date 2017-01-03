@@ -73,7 +73,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         addSubview(pagingScrollView)
         
         centerContentOffsetToMiddleSegment()
-        didStartViewingPage(AtIndex: _currentPageIndex)
+        didStartViewingPage(atIndex: _currentPageIndex)
     }
 
     override public func layoutSubviews() {
@@ -93,8 +93,6 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         
         pagingScrollView.contentOffset = contentOffsetForPage(AtIndex: _currentPageIndex)
         tilePages()
-        
-        debugPrint("layoutSubviews completed")
     }
     
     private func tilePages() {
@@ -141,7 +139,6 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
                 configurePage(page, forIndex: index)
                 visiblePages.insert(page)
                 pagingScrollView.addSubview(page)
-                debugPrint("Added page at index \(index)")
             }
         }
     }
@@ -178,11 +175,10 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         }
     }
     
-    private func didStartViewingPage(AtIndex index: Int) {
-        debugPrint("did start viewing page at: \(index)")
+    private func didStartViewingPage(atIndex index: Int) {
         let photo = _photos[index]
         if photo.underlyingImage != nil {
-            loadAdjacentPhotosIfNecessary(ForPhoto: photo)
+            loadAdjacentPhotosIfNecessary(forPhoto: photo)
         } else {
             photo.loadUnterlyingImageAndNotify()
         }
@@ -190,7 +186,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         delegate?.photoBrowser(self, firedEvent: .didSwipeToImage)
     }
     
-    private func loadAdjacentPhotosIfNecessary(ForPhoto photo: OTTOPhoto) {
+    private func loadAdjacentPhotosIfNecessary(forPhoto photo: OTTOPhoto) {
         guard let page = pageDisplayingPhoto(photo) else { return }
         
         let pIndex = pageIndex(page)
@@ -272,16 +268,12 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     // MARK: Handle notifications
     
     func onImageLoadedNotification(notification: Notification) {
-        debugPrint("onImageLoadedNotification")
-        
         if let photo = notification.object as? OTTOPhoto,
             let page = pageDisplayingPhoto(photo)
         {
             if photo.underlyingImage != nil {
                 page.displayImage()
-                loadAdjacentPhotosIfNecessary(ForPhoto: photo)
-            } else {
-                debugPrint("TODO: Display image failure")
+                loadAdjacentPhotosIfNecessary(forPhoto: photo)
             }
         }
     }
@@ -304,7 +296,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         _currentPageIndex = index
         
         if _currentPageIndex != previousCurrentPageIndex {
-            didStartViewingPage(AtIndex: index)
+            didStartViewingPage(atIndex: index)
         }
     }
     
