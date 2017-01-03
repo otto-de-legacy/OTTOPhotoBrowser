@@ -59,6 +59,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         let imageViewDoubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(gestureRecognizer:)))
         imageViewDoubleTapRecognizer.numberOfTapsRequired = 2
         imageViewSingleTapRecognizer.require(toFail: imageViewDoubleTapRecognizer)
+        photoImageView.isUserInteractionEnabled = true
         photoImageView.addGestureRecognizer(imageViewSingleTapRecognizer)
         photoImageView.addGestureRecognizer(imageViewDoubleTapRecognizer)
         
@@ -192,7 +193,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     }
     
     func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
-        let touchPoint = gestureRecognizer.location(in: gestureRecognizer.view)
+        let touchPoint = gestureRecognizer.location(in: photoImageView)
         if zoomScale == maximumZoomScale {
             setZoomScale(minimumZoomScale, animated: true)
         } else {
