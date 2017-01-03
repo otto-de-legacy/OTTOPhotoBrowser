@@ -15,7 +15,6 @@
 		1FFF8BF42E9D163F6F2D1E4331A9FAE3 /* OTTOPhotoBrowser-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74F7F804CF89DBD74313A2541D785 /* OTTOPhotoBrowser-dummy.m */; };
 		234ECD93D402477E102E87A1BF027836 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D098429AFA63708E72C5DB917A0C08 /* UIImageView+HighlightedWebCache.m */; };
 		254CBA4BF80D66D5E88EC321375F7F34 /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 66686F1EC5C075A5AADC917F6997835A /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		288D9567B645DD0DE5EEAB288983917C /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B3FF7E5E0694F7358605A021AD7987 /* Notifications.swift */; };
 		2D3E72A955DE81E0C76AF63F61887311 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86DB40796E48BDB5A0A5BE2B25DB70 /* UIView+WebCacheOperation.m */; };
 		30FEA8F34D804A0030F1A20DF52C63AC /* OTTOPhotoBrowserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34BF9131EB212EA69B7A03F75F25F15 /* OTTOPhotoBrowserDelegate.swift */; };
 		33F5B249D45B10C644F666E718D54F7E /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A58EF830F04149AB69CD818FA86AF7F /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -109,7 +108,6 @@
 		6CCCA9C24210A383940066EDE09C5C12 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		6FC8999F7E3593FA1A493907749D2A2F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7030FB5B3F468F61B9E812665D1E629D /* Pods_OTTOPhotoBrowser_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTTOPhotoBrowser_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		75B3FF7E5E0694F7358605A021AD7987 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		768EB2A98F100543CF9ABEC798BA4486 /* Pods-OTTOPhotoBrowser_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OTTOPhotoBrowser_Example-umbrella.h"; sourceTree = "<group>"; };
 		78C33835C489AC22808A30F445CC88B6 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		88085076FA0F97E0F3ADB8E1AA3E861C /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		00320EA4A2618FE2361FF105A822B9F9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				75B3FF7E5E0694F7358605A021AD7987 /* Notifications.swift */,
 				90429730142763359E85DD5BD5D80B29 /* OTTOPhoto.swift */,
 				A34BF9131EB212EA69B7A03F75F25F15 /* OTTOPhotoBrowserDelegate.swift */,
 				CE9855483598C53DB6A71C9F78AC2B0D /* OTTOPhotoBrowserView.swift */,
@@ -581,7 +578,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				288D9567B645DD0DE5EEAB288983917C /* Notifications.swift in Sources */,
 				9CCDC180D40E8CF2BA445036FE314940 /* OTTOPhoto.swift in Sources */,
 				1FFF8BF42E9D163F6F2D1E4331A9FAE3 /* OTTOPhotoBrowser-dummy.m in Sources */,
 				30FEA8F34D804A0030F1A20DF52C63AC /* OTTOPhotoBrowserDelegate.swift in Sources */,

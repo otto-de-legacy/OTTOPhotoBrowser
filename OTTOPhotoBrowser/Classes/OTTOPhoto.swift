@@ -10,9 +10,7 @@ import UIKit
 import SDWebImage
 
 public class OTTOPhoto: Equatable {
-    let url: URL
-    var progressUpdateBlock: ((CGFloat)->())?
-    
+    let url: URL    
     var image: UIImage?
     
     public init(withUrl url: URL) {

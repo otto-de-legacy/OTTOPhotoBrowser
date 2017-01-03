@@ -33,10 +33,8 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         }
     }
     
-    public var currentPageIndexStartingAtOne: Int {
-        get {
-            return (_currentPageIndex % realNumberOfPhotos()) + 1
-        }
+    public var currentPageIndex: Int {
+        return _currentPageIndex % realNumberOfPhotos()
     }
     
     public weak var delegate: OTTOPhotoBrowserDelegate?
@@ -51,8 +49,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         super.init(coder: aDecoder)
     }
     
-    func load() {
-        
+    private func load() {
         backgroundColor = UIColor.white
         clipsToBounds = true
         
@@ -62,8 +59,10 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         pagingScrollView.showsHorizontalScrollIndicator = false
         pagingScrollView.backgroundColor = UIColor.clear
         
-        
         addSubview(pagingScrollView)
+        
+        setNeedsLayout()
+        layoutIfNeeded()
         
         centerContentOffsetToMiddleSegment()
         didStartViewingPage(atIndex: _currentPageIndex)
@@ -75,40 +74,28 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         pagingScrollView.frame = frameForPagingScrollView()
         pagingScrollView.contentSize = contentSizeForPagingScrollView()
         
-        // "performLayout"
-        
         for page in visiblePages {
             page.removeFromSuperview()
         }
         
         visiblePages.removeAll()
-        //recycledPages.removeAll()
         
         pagingScrollView.contentOffset = contentOffsetForPage(AtIndex: _currentPageIndex)
-        tilePages()
+        createPages()
     }
     
-    private func tilePages() {
+    private func createPages() {
+        if numberOfPhotos() == 0 {
+            return
+        }
+        
         let visibleBounds = pagingScrollView.bounds
         
         var firstIndex = Int(floor(visibleBounds.minX + PADDING * 2) / visibleBounds.width)
         var lastIndex = Int(floor(visibleBounds.maxX - PADDING * 2 - 1) / visibleBounds.width)
         
-        if firstIndex < 0 {
-            firstIndex = 0
-        }
-        
-        if firstIndex > (numberOfPhotos() - 1) {
-            firstIndex = numberOfPhotos() - 1
-        }
-        
-        if lastIndex < 0 {
-            lastIndex = 0
-        }
-        
-        if lastIndex > (numberOfPhotos() - 1) {
-            lastIndex = numberOfPhotos() - 1
-        }
+        firstIndex = max(0, min(numberOfPhotos() - 1, firstIndex))
+        lastIndex = max(0, min(numberOfPhotos() - 1, lastIndex))
 
         var pageIndex = 0
         for page in visiblePages {
@@ -161,11 +148,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     private func configurePage(_ page: OTTOZoomingScrollView, forIndex index: Int) {
         page.frame = frameForPage(AtIndex: index)
         page.tag = TAG_OFFSET + index
-        page.photo = _photos[index];
-        
-        page.photo?.progressUpdateBlock = { [weak page] (progress) in
-            page?.setProgress(progress)
-        }
+        page.photo = _photos[index]
     }
     
     private func didStartViewingPage(atIndex index: Int) {
@@ -203,16 +186,18 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     private func loadAndDisplay(photo: OTTOPhoto) {
         let manager = SDWebImageManager.shared()!
         let _ = manager.downloadImage(with: photo.url, options: .retryFailed, progress: { (receivedSize, expectedSize) in
-            if let progressUpdateBlock = photo.progressUpdateBlock {
+            if let page = self.pageDisplayingPhoto(photo) {
                 let progress = CGFloat(receivedSize) / CGFloat(expectedSize)
-                progressUpdateBlock(progress)
+                page.setProgress(progress)
             }
         }, completed: { (image, error, cacheType, finished, imageUrl) in
-            if let image = image, let page = self.pageDisplayingPhoto(photo) {
+            if let image = image {
                 photo.image = image
-                
-                page.displayImage()
-                self.loadAdjacentPhotosIfNecessary(forPhoto: photo)
+            
+                if let page = self.pageDisplayingPhoto(photo) {
+                    page.displayImage()
+                    self.loadAdjacentPhotosIfNecessary(forPhoto: photo)
+                }
             }
         })
     }
@@ -278,7 +263,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     // MARK: UIScrollViewDelegate
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        tilePages()
+        createPages()
         
         let visibleBounds = pagingScrollView.bounds
         var index = Int(floor(visibleBounds.midX / visibleBounds.width))
