@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     
@@ -43,19 +44,11 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     override init(frame: CGRect) {
         pagingScrollView = UIScrollView()
         super.init(frame: frame)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(onImageLoadedNotification(notification:)), name: Notifications.ImageLoadingFinishedNotification, object: nil)
     }
     
     required public init?(coder aDecoder: NSCoder) {
         pagingScrollView = UIScrollView()
         super.init(coder: aDecoder)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(onImageLoadedNotification(notification:)), name: Notifications.ImageLoadingFinishedNotification, object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
     
     func load() {
@@ -157,10 +150,10 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     }
     
     func imageForPhoto(photo: OTTOPhoto) -> UIImage? {
-        if let underlyingImage = photo.underlyingImage {
-            return underlyingImage
+        if let image = photo.image {
+            return image
         } else {
-            photo.loadUnterlyingImageAndNotify()
+            loadAndDisplay(photo: photo)
             return nil
         }
     }
@@ -177,10 +170,10 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     
     private func didStartViewingPage(atIndex index: Int) {
         let photo = _photos[index]
-        if photo.underlyingImage != nil {
-            loadAdjacentPhotosIfNecessary(forPhoto: photo)
+        if photo.image == nil {
+            loadAndDisplay(photo: photo)
         } else {
-            photo.loadUnterlyingImageAndNotify()
+            loadAdjacentPhotosIfNecessary(forPhoto: photo)
         }
         
         delegate?.photoBrowser(self, firedEvent: .didSwipeToImage)
@@ -193,26 +186,43 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         if _currentPageIndex == pIndex {
             if pIndex > 0 {
                 let photoAtIndex = _photos[pIndex - 1]
-                if photoAtIndex.underlyingImage == nil {
-                    photoAtIndex.loadUnterlyingImageAndNotify()
+                if photoAtIndex.image == nil {
+                    loadAndDisplay(photo: photoAtIndex)
                 }
             }
             
             if pIndex < numberOfPhotos() - 1 {
                 let photoAtIndex = _photos[pIndex+1]
-                if photoAtIndex.underlyingImage == nil {
-                    photoAtIndex.loadUnterlyingImageAndNotify()
+                if photoAtIndex.image == nil {
+                    loadAndDisplay(photo: photoAtIndex)
                 }
             }
         }
     }
     
+    private func loadAndDisplay(photo: OTTOPhoto) {
+        let manager = SDWebImageManager.shared()!
+        let _ = manager.downloadImage(with: photo.url, options: .retryFailed, progress: { (receivedSize, expectedSize) in
+            if let progressUpdateBlock = photo.progressUpdateBlock {
+                let progress = CGFloat(receivedSize) / CGFloat(expectedSize)
+                progressUpdateBlock(progress)
+            }
+        }, completed: { (image, error, cacheType, finished, imageUrl) in
+            if let image = image, let page = self.pageDisplayingPhoto(photo) {
+                photo.image = image
+                
+                page.displayImage()
+                self.loadAdjacentPhotosIfNecessary(forPhoto: photo)
+            }
+        })
+    }
+    
     private func pageDisplayingPhoto(_ photo: OTTOPhoto) -> OTTOZoomingScrollView? {
         return visiblePages.filter {
-            guard let pagePhoto = $0.photo else {
-                return false
+            if let pagePhoto = $0.photo, pagePhoto == photo {
+                return true
             }
-            return pagePhoto == photo
+            return false
         }.first
     }
     
@@ -263,19 +273,6 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         let pageFrame = frameForPage(AtIndex: _currentPageIndex)
         
         pagingScrollView.setContentOffset(CGPoint(x: pageFrame.origin.x - PADDING, y: 0), animated: false)
-    }
-    
-    // MARK: Handle notifications
-    
-    func onImageLoadedNotification(notification: Notification) {
-        if let photo = notification.object as? OTTOPhoto,
-            let page = pageDisplayingPhoto(photo)
-        {
-            if photo.underlyingImage != nil {
-                page.displayImage()
-                loadAdjacentPhotosIfNecessary(forPhoto: photo)
-            }
-        }
     }
     
     // MARK: UIScrollViewDelegate

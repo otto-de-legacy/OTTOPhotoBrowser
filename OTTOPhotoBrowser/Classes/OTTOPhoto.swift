@@ -10,32 +10,16 @@ import UIKit
 import SDWebImage
 
 public class OTTOPhoto: Equatable {
-    let photoUrl: URL
+    let url: URL
     var progressUpdateBlock: ((CGFloat)->())?
     
-    private(set) var underlyingImage: UIImage?
+    var image: UIImage?
     
     public init(withUrl url: URL) {
-        photoUrl = url
+        self.url = url
     }
-    
-    func loadUnterlyingImageAndNotify() {
-        let manager = SDWebImageManager.shared()!
-        let _ = manager.downloadImage(with: photoUrl, options: .retryFailed, progress: { (receivedSize, expectedSize) in
-            let progress: CGFloat = CGFloat(receivedSize) / CGFloat(expectedSize)
-            if let progressUpdateBlock = self.progressUpdateBlock {
-                progressUpdateBlock(progress)
-            }
-        }, completed: { (image, error, cacheType, finished, imageUrl) in
-            if let image = image {
-                self.underlyingImage = image
-                NotificationCenter.default.post(name: Notifications.ImageLoadingFinishedNotification, object: self)
-            }
-        })
-    }
-    
 }
 
 public func ==(lhs: OTTOPhoto, rhs: OTTOPhoto) -> Bool {
-    return lhs.photoUrl == rhs.photoUrl
+    return lhs.url == rhs.url
 }
