@@ -49,7 +49,7 @@ class ViewController: UIViewController, OTTOPhotoBrowserDelegate {
     }
     
     private func updateCounterLabel() {
-        let text = "\(photoBrowser.currentPageIndexStartingAtOne)/\(photoBrowser.photos.count)"
+        let text = "\(photoBrowser.currentPageIndex)/\(photoBrowser.photos.count)"
         counterLabel.text = text
     }
 }

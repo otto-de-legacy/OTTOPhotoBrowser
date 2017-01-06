@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '75A7245B4BE7973FA937C87F5B54417B'
+               BlueprintIdentifier = 'C6561147E73020485B32E48DC67D7A7B'
                BlueprintName = 'OTTOPhotoBrowser'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'OTTOPhotoBrowser.framework'>
