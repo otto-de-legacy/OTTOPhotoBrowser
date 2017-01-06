@@ -14,16 +14,14 @@ class ViewController: UIViewController, OTTOPhotoBrowserDelegate {
     @IBOutlet var photoBrowser: OTTOPhotoBrowserView!
     @IBOutlet var counterLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         let photos = [
             "http://www.clipartkid.com/images/376/bullet-1-red-1-clip-art-at-clker-com-vector-clip-art-online-royalty-UgUb3A-clipart.png",
             "http://www.drodd.com/images15/2-17.png",
             "http://www.drodd.com/images15/3-17.png"
-            ].map { OTTOPhoto(withUrl: URL(string: $0)!) }
+        ].map { OTTOPhoto(withUrl: URL(string: $0)!) }
 
         photoBrowser.delegate = self
         photoBrowser.photos = photos
@@ -31,11 +29,6 @@ class ViewController: UIViewController, OTTOPhotoBrowserDelegate {
         updateCounterLabel()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: OTTOPhotoBrowserDelegate
     
     func photoBrowser(_ photoBrowser: OTTOPhotoBrowserView, firedEvent event: OTTOPhotoBrowserEvent) {

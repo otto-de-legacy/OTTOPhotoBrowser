@@ -24,7 +24,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     private var tapTimer: Timer?
     
     func prepareForReuse() {
-        self.photo = nil
+        photo = nil
     }
     
     func setProgress(_ progress :CGFloat) { // TODO: make property or set directly
@@ -36,7 +36,6 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     }
     
     init(photoBrowserView: OTTOPhotoBrowserView) {
-        
         self.photoBrowserView = photoBrowserView
     
         tapView = UIView(frame: CGRect.zero)
@@ -85,18 +84,13 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     }
     
     func displayImage() {
-        guard let photo = photo else {
-            return
-        }
+        guard let photo = photo else { return }
         
-        maximumZoomScale = 1
-        minimumZoomScale = 1
         zoomScale = 1
         contentSize = CGSize.zero
         
         if let image = photoBrowserView?.imageForPhoto(photo: photo) {
             progressView.removeFromSuperview()
-            
             photoImageView.image = image
             photoImageView.isHidden = false
             
@@ -109,18 +103,11 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
             photoImageView.isHidden = true
             progressView.alpha = 1
         }
-        
         setNeedsLayout()
     }
     
     func setMaxMinZoomScalesForCurrentBounds() {
-        maximumZoomScale = 1
-        minimumZoomScale = 1
-        zoomScale = 1
-        
-        if photoImageView.image == nil {
-            return
-        }
+        if photoImageView.image == nil { return }
         
         var boundsSize = bounds.size
         boundsSize.width -= 0.1
@@ -131,31 +118,31 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         let xScale = boundsSize.width / imageSize.width;    // the scale needed to perfectly fit the image width-wise
         let yScale = boundsSize.height / imageSize.height;  // the scale needed to perfectly fit the image height-wise
         let minScale = min(xScale, yScale);                 // use minimum of these to allow the image to become fully visible
-        let maxScale = max(UIScreen.main.scale, minScale * 2)
+        let maxScale = minScale * 2.5
         
-        self.maximumZoomScale = maxScale;
-        self.minimumZoomScale = minScale;
-        self.zoomScale = minScale;
+        maximumZoomScale = maxScale;
+        minimumZoomScale = minScale;
+        zoomScale = minScale;
         
         photoImageView.frame = CGRect(x: 0, y: 0, width: photoImageView.frame.size.width, height: photoImageView.frame.size.height)
         setNeedsLayout()
     }
     
     override func layoutSubviews() {
-        tapView.frame = self.bounds
+        tapView.frame = bounds
         
         super.layoutSubviews()
         
         let boundsSize = bounds.size
         var frameToCenter = photoImageView.frame
         
-        if (frameToCenter.size.width < boundsSize.width) {
+        if frameToCenter.size.width < boundsSize.width {
             frameToCenter.origin.x = floor((boundsSize.width - frameToCenter.size.width) / CGFloat(2))
         } else {
             frameToCenter.origin.x = 0;
         }
     
-        if (frameToCenter.size.height < boundsSize.height) {
+        if frameToCenter.size.height < boundsSize.height {
             frameToCenter.origin.y = floor((boundsSize.height - frameToCenter.size.height) / CGFloat(2));
         } else {
             frameToCenter.origin.y = 0;
@@ -189,7 +176,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     // MARK: Tap Detection
     
     func handleSingleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.photoBrowserView?.onTap()
+        photoBrowserView?.onTap()
     }
     
     func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {

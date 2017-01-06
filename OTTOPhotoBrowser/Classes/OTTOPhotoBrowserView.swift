@@ -27,7 +27,6 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
             _photos = newValue + newValue + newValue
             load()
         }
-        
         get {
             return _passedPhotos
         }
@@ -85,9 +84,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     }
     
     private func createPages() {
-        if numberOfPhotos() == 0 {
-            return
-        }
+        if numberOfPhotos() == 0 { return }
         
         let visibleBounds = pagingScrollView.bounds
         
