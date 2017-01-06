@@ -86,6 +86,8 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     func displayImage() {
         guard let photo = photo else { return }
         
+        minimumZoomScale = 1
+        maximumZoomScale = 1
         zoomScale = 1
         contentSize = CGSize.zero
         
