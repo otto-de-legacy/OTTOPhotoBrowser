@@ -17,9 +17,9 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     }
     
     weak var photoBrowserView: OTTOPhotoBrowserView?
+    private let activityIndicatorView: UIActivityIndicatorView
     private let tapView: UIView
     private let photoImageView: UIImageView
-    private let progressView: UIProgressView
     private var isPinchoutDetected = false
     private var tapTimer: Timer?
     
@@ -27,8 +27,12 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         photo = nil
     }
     
-    func setProgress(_ progress :CGFloat) { // TODO: make property or set directly
-        progressView.setProgress(Float(progress), animated: true)
+    func showActivityIndicator() {
+        activityIndicatorView.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        activityIndicatorView.stopAnimating()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,11 +42,16 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     init(photoBrowserView: OTTOPhotoBrowserView) {
         self.photoBrowserView = photoBrowserView
     
+        activityIndicatorView = UIActivityIndicatorView()
         tapView = UIView(frame: CGRect.zero)
         photoImageView = UIImageView(frame: CGRect.zero)
-        progressView = UIProgressView(frame: CGRect.zero)
         
         super.init(frame: CGRect.zero)
+        
+        activityIndicatorView.center = photoBrowserView.center
+        activityIndicatorView.activityIndicatorViewStyle = .gray
+        activityIndicatorView.hidesWhenStopped = true
+        addSubview(activityIndicatorView)
         
         tapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tapView.backgroundColor = UIColor.clear
@@ -67,13 +76,9 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         let screenWidth = isLandscape ?  screenBounds.height : screenBounds.width
         let screenHeight = isLandscape ? screenBounds.width : screenBounds.height
         let progressViewFrame = CGRect(x: (screenWidth - 35) / 2, y: (screenHeight - 35) - 2, width: 35, height: 35)
-        // TODO: optimize positioning
-        progressView.frame = progressViewFrame
-        progressView.tag = 101
         
         addSubview(tapView)
         addSubview(photoImageView)
-        addSubview(progressView)
         
         backgroundColor = UIColor.clear
         delegate = self
@@ -94,7 +99,6 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         contentSize = CGSize.zero
         
         if let image = photoBrowserView?.imageForPhoto(photo: photo) {
-            progressView.removeFromSuperview()
             photoImageView.image = image
             photoImageView.isHidden = false
             
@@ -105,7 +109,6 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
             setMaxMinZoomScalesForCurrentBounds()
         } else {
             photoImageView.isHidden = true
-            progressView.alpha = 1
         }
         setNeedsLayout()
     }

@@ -57,7 +57,6 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         pagingScrollView.showsVerticalScrollIndicator = false
         pagingScrollView.showsHorizontalScrollIndicator = false
         pagingScrollView.backgroundColor = UIColor.clear
-        
         addSubview(pagingScrollView)
         
         setNeedsLayout()
@@ -184,14 +183,14 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         let manager = SDWebImageManager.shared()!
         let _ = manager.downloadImage(with: photo.url, options: .retryFailed, progress: { (receivedSize, expectedSize) in
             if let page = self.pageDisplayingPhoto(photo) {
-                let progress = CGFloat(receivedSize) / CGFloat(expectedSize)
-                page.setProgress(progress)
+                page.showActivityIndicator()
             }
         }, completed: { (image, error, cacheType, finished, imageUrl) in
             if let image = image {
                 photo.image = image
             
                 if let page = self.pageDisplayingPhoto(photo) {
+                    page.hideActivityIndicator()
                     page.displayImage()
                     self.loadAdjacentPhotosIfNecessary(forPhoto: photo)
                 }
