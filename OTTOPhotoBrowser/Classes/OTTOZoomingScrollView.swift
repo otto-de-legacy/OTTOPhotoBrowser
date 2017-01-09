@@ -21,18 +21,9 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     private let tapView: UIView
     private let photoImageView: UIImageView
     private var isPinchoutDetected = false
-    private var tapTimer: Timer?
     
     func prepareForReuse() {
         photo = nil
-    }
-    
-    func showActivityIndicator() {
-        activityIndicatorView.startAnimating()
-    }
-    
-    func hideActivityIndicator() {
-        activityIndicatorView.stopAnimating()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,7 +39,6 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         
         super.init(frame: CGRect.zero)
         
-        activityIndicatorView.center = photoBrowserView.center
         activityIndicatorView.activityIndicatorViewStyle = .gray
         activityIndicatorView.hidesWhenStopped = true
         addSubview(activityIndicatorView)
@@ -107,8 +97,10 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
             contentSize = photoImageViewFrame.size
             
             setMaxMinZoomScalesForCurrentBounds()
+            activityIndicatorView.stopAnimating()
         } else {
             photoImageView.isHidden = true
+            activityIndicatorView.startAnimating()
         }
         setNeedsLayout()
     }
@@ -158,6 +150,8 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         }
         
         photoImageView.frame = frameToCenter
+        
+        activityIndicatorView.center = CGPoint(x: bounds.midX, y: bounds.midY)
     }
     
     // MARK: UIScrollViewDelegate

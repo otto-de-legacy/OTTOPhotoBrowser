@@ -183,19 +183,13 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     
     private func loadAndDisplay(photo: OTTOPhoto) {
         let manager = SDWebImageManager.shared()!
-        let _ = manager.downloadImage(with: photo.url, options: .retryFailed, progress: { (receivedSize, expectedSize) in
-            if let page = self.pageDisplayingPhoto(photo) {
-                page.showActivityIndicator()
-            }
-        }, completed: { (image, error, cacheType, finished, imageUrl) in
-            if let image = image {
-                photo.image = image
+        let _ = manager.downloadImage(with: photo.url, options: .retryFailed, progress: nil, completed: { (image, error, cacheType, finished, imageUrl) in
+            guard let image = image else { return }
+            photo.image = image
             
-                if let page = self.pageDisplayingPhoto(photo) {
-                    page.hideActivityIndicator()
-                    page.displayImage()
-                    self.loadAdjacentPhotosIfNecessary(forPhoto: photo)
-                }
+            if let page = self.pageDisplayingPhoto(photo) {
+                page.displayImage()
+                self.loadAdjacentPhotosIfNecessary(forPhoto: photo)
             }
         })
     }
