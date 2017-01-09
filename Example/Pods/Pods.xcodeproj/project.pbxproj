@@ -41,7 +41,7 @@
 		9B61E592D62A4D9070A0F1E6D89ED304 /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = C628427AA1BFAA60D1D96C83FD061B51 /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A93580C1853EB50210954166C4410FBC /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86DB40796E48BDB5A0A5BE2B25DB70 /* UIView+WebCacheOperation.m */; };
 		C8C0D873230A8B97C7D3249384255D80 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = D9DBA50E94973CF8DDD2ECF0321BB768 /* NSData+ImageContentType.m */; };
-		CD99B6B9EC625ED8D7FC975ED3A871E0 /* OttoZoomingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0156126A6762073F9CABE042F80DEAD /* OttoZoomingScrollView.swift */; };
+		CD99B6B9EC625ED8D7FC975ED3A871E0 /* OTTOZoomingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0156126A6762073F9CABE042F80DEAD /* OTTOZoomingScrollView.swift */; };
 		D2F1B9237FAE9D7E3EF57ABE6998B296 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E148CD5DBCC7FD36DA8D2A62D38AF8 /* Foundation.framework */; };
 		D9D705CE52617E773026D96FAB68837E /* Pods-OTTOPhotoBrowser_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F97B80BFA6A5D9BE8C3AADF2353E1001 /* Pods-OTTOPhotoBrowser_Example-dummy.m */; };
 		DC6EE7B14CB61B657E84CECCD28402DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E148CD5DBCC7FD36DA8D2A62D38AF8 /* Foundation.framework */; };
@@ -81,8 +81,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		018F87229B383759656946934A262FC8 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SDWebImage.modulemap; sourceTree = "<group>"; };
-		0537C0FD0A245FAEA28EB26E356736FE /* Pods_OTTOPhotoBrowser_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_OTTOPhotoBrowser_Example.framework; path = "Pods-OTTOPhotoBrowser_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		018F87229B383759656946934A262FC8 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SDWebImage.modulemap; sourceTree = "<group>"; };
+		0537C0FD0A245FAEA28EB26E356736FE /* Pods_OTTOPhotoBrowser_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTTOPhotoBrowser_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		113FC6ACC96F49FBA6EDFAA1D8CBC9A0 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
 		130D53DA86C640F84E5039E198719799 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		175215309D904D6DBF5332A27289CC5E /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		335701ADD57C030EA976D4225BBE196C /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		39660D73F23817901E0A28409830CEF7 /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
 		3F2887523B9B4D40509990168BA844F2 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
-		47CD0B23E00B302333A705D00B7146CB /* OTTOPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OTTOPhotoBrowser.framework; path = OTTOPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47CD0B23E00B302333A705D00B7146CB /* OTTOPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OTTOPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4679D4CF55D6D54111B009BD08585F /* Pods-OTTOPhotoBrowser_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OTTOPhotoBrowser_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		4D5BFA65C9CD90E04033262263AD7E8B /* Pods-OTTOPhotoBrowser_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OTTOPhotoBrowser_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		547F4D8387D1B653DEA9400CDE5398DF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,17 +108,17 @@
 		6894425F399FC6F245E7966860F01C14 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
 		6CCCA9C24210A383940066EDE09C5C12 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		6FC8999F7E3593FA1A493907749D2A2F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7030FB5B3F468F61B9E812665D1E629D /* Pods_OTTOPhotoBrowser_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_OTTOPhotoBrowser_Tests.framework; path = "Pods-OTTOPhotoBrowser_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7030FB5B3F468F61B9E812665D1E629D /* Pods_OTTOPhotoBrowser_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTTOPhotoBrowser_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		768EB2A98F100543CF9ABEC798BA4486 /* Pods-OTTOPhotoBrowser_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OTTOPhotoBrowser_Example-umbrella.h"; sourceTree = "<group>"; };
 		78C33835C489AC22808A30F445CC88B6 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		88085076FA0F97E0F3ADB8E1AA3E861C /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
 		8B6581329ACBA776A17D40F9B98C7176 /* Pods-OTTOPhotoBrowser_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OTTOPhotoBrowser_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8C2C6B626558FFEE8CA23A10FB167E85 /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
-		8F9DFBBA4F477EE9DE0C409A4DD94CD4 /* Pods-OTTOPhotoBrowser_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-OTTOPhotoBrowser_Example.modulemap"; sourceTree = "<group>"; };
+		8F9DFBBA4F477EE9DE0C409A4DD94CD4 /* Pods-OTTOPhotoBrowser_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-OTTOPhotoBrowser_Example.modulemap"; sourceTree = "<group>"; };
 		915BF688726724769EC6637B7ECF0C40 /* Pods-OTTOPhotoBrowser_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OTTOPhotoBrowser_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		99894E74BA201B91BBC21EA59C230365 /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
-		9DD3FA0F32E61CF46BC4CBF24A37C05D /* OTTOPhotoBrowser.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = OTTOPhotoBrowser.modulemap; sourceTree = "<group>"; };
+		9DD3FA0F32E61CF46BC4CBF24A37C05D /* OTTOPhotoBrowser.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = OTTOPhotoBrowser.modulemap; sourceTree = "<group>"; };
 		9FD7B22351B5EC7F90CD582362C3564D /* Pods-OTTOPhotoBrowser_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OTTOPhotoBrowser_Tests-umbrella.h"; sourceTree = "<group>"; };
 		A0933F3B154EF6D557C6C806641C3084 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
 		A7E74F7F804CF89DBD74313A2541D785 /* OTTOPhotoBrowser-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OTTOPhotoBrowser-dummy.m"; sourceTree = "<group>"; };
@@ -130,12 +130,12 @@
 		B0108355A9C23BB3F257AECD25538BF3 /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
 		B3D098429AFA63708E72C5DB917A0C08 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
 		B5383B69B2B0645B68912883178636AD /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
-		B5553008B4006C38800848ABB33276D7 /* Pods-OTTOPhotoBrowser_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-OTTOPhotoBrowser_Tests.modulemap"; sourceTree = "<group>"; };
+		B5553008B4006C38800848ABB33276D7 /* Pods-OTTOPhotoBrowser_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-OTTOPhotoBrowser_Tests.modulemap"; sourceTree = "<group>"; };
 		BA89A282AAF4E3CFA31368FB0135E7FF /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		BCA861A1E36A6379C02A0BECD68CE89A /* SDWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloader.m; path = SDWebImage/SDWebImageDownloader.m; sourceTree = "<group>"; };
 		C0341555829726BC60CF15AD94330DDC /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
 		C211BB78ED9FFFF3FDF75360A12D7E89 /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
-		C3A1BAC630CF9CDE79D984F4150403F6 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3A1BAC630CF9CDE79D984F4150403F6 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C628427AA1BFAA60D1D96C83FD061B51 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
 		C9569EA4312D27C864D25C2C32A5D798 /* OTTOPhotoBrowser-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OTTOPhotoBrowser-umbrella.h"; sourceTree = "<group>"; };
 		CA689B8A6A56D8FE9DB5DFF6FB43C4CD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		D672CB42060DBC82C3044F9B67086F15 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
 		D9DBA50E94973CF8DDD2ECF0321BB768 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		DF86DB40796E48BDB5A0A5BE2B25DB70 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		E0156126A6762073F9CABE042F80DEAD /* OttoZoomingScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OttoZoomingScrollView.swift; sourceTree = "<group>"; };
+		E0156126A6762073F9CABE042F80DEAD /* OTTOZoomingScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTOZoomingScrollView.swift; sourceTree = "<group>"; };
 		E144FB0184DBEE9255FDCD0BEBB8AF2B /* Pods-OTTOPhotoBrowser_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OTTOPhotoBrowser_Example-resources.sh"; sourceTree = "<group>"; };
 		E1B2670313CC7798CF7D670D0C0B70F6 /* Pods-OTTOPhotoBrowser_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OTTOPhotoBrowser_Example-frameworks.sh"; sourceTree = "<group>"; };
 		E45C1A18D9C149DCF1C2A5571D987E7F /* OTTOPhotoBrowserView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTOPhotoBrowserView.swift; sourceTree = "<group>"; };
@@ -254,9 +254,8 @@
 				23811B7D043F2EB223D266D7F5A0A7E8 /* OTTOPhoto.swift */,
 				AE9B2DED7A7FB6272818D15621A15CC3 /* OTTOPhotoBrowserDelegate.swift */,
 				E45C1A18D9C149DCF1C2A5571D987E7F /* OTTOPhotoBrowserView.swift */,
-				E0156126A6762073F9CABE042F80DEAD /* OttoZoomingScrollView.swift */,
+				E0156126A6762073F9CABE042F80DEAD /* OTTOZoomingScrollView.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -303,7 +302,6 @@
 				0A8762D3B2674879B8CAA13A6CEC5DA3 /* Core */,
 				F458AEE6DB03EE2F187049ADC6024384 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -397,7 +395,6 @@
 			children = (
 				3583F6AA1F8F66CA056AE1D671672AAB /* Classes */,
 			);
-			name = OTTOPhotoBrowser;
 			path = OTTOPhotoBrowser;
 			sourceTree = "<group>";
 		};
@@ -563,7 +560,7 @@
 				0E9C847F4E003FC99C6F42E75B781D4E /* OTTOPhotoBrowser-dummy.m in Sources */,
 				81E4F796397ED7C0FAFB42DE18BC6E7D /* OTTOPhotoBrowserDelegate.swift in Sources */,
 				56D35288FD1BAF2BABE01814B2C33C02 /* OTTOPhotoBrowserView.swift in Sources */,
-				CD99B6B9EC625ED8D7FC975ED3A871E0 /* OttoZoomingScrollView.swift in Sources */,
+				CD99B6B9EC625ED8D7FC975ED3A871E0 /* OTTOZoomingScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
