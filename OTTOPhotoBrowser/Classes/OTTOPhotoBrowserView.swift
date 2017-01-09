@@ -33,6 +33,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     }
     
     public var currentPageIndex: Int {
+        if numberOfPhotos() == 0 { return 0 }
         return _currentPageIndex % realNumberOfPhotos()
     }
     
