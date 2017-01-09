@@ -18,9 +18,9 @@ class ViewController: UIViewController, OTTOPhotoBrowserDelegate {
         super.viewDidLoad()
         
         let photos = [
-            "http://www.clipartkid.com/images/376/bullet-1-red-1-clip-art-at-clker-com-vector-clip-art-online-royalty-UgUb3A-clipart.png",
-            "http://www.drodd.com/images15/2-17.png",
-            "http://www.drodd.com/images15/3-17.png"
+            "https://github.com/otto-de/OTTOPhotoBrowser/raw/master/Example/Assets/1.png",
+            "https://github.com/otto-de/OTTOPhotoBrowser/raw/master/Example/Assets/2.png",
+            "https://github.com/otto-de/OTTOPhotoBrowser/raw/master/Example/Assets/3.png"
         ].map { OTTOPhoto(withUrl: URL(string: $0)!) }
 
         photoBrowser.delegate = self
@@ -42,7 +42,7 @@ class ViewController: UIViewController, OTTOPhotoBrowserDelegate {
     }
     
     private func updateCounterLabel() {
-        let text = "\(photoBrowser.currentPageIndex)/\(photoBrowser.photos.count)"
+        let text = "\(photoBrowser.currentPageIndex + 1)/\(photoBrowser.photos.count)"
         counterLabel.text = text
     }
 }
