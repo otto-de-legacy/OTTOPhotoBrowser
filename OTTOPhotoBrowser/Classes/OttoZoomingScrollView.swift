@@ -84,7 +84,9 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     }
     
     func displayImage() {
-        guard let photo = photo else { return }
+        guard let photo = photo else {
+            return
+        }
         
         minimumZoomScale = 1
         maximumZoomScale = 1
@@ -108,8 +110,10 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         setNeedsLayout()
     }
     
-    func setMaxMinZoomScalesForCurrentBounds() {
-        if photoImageView.image == nil { return }
+    private func setMaxMinZoomScalesForCurrentBounds() {
+        if photoImageView.image == nil {
+            return
+        }
         
         var boundsSize = bounds.size
         boundsSize.width -= 0.1
