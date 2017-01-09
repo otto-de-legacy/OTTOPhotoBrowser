@@ -1,5 +1,5 @@
 PODS:
-  - OTTOPhotoBrowser (0.1.0):
+  - OTTOPhotoBrowser (1.0):
     - SDWebImage
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -11,10 +11,10 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   OTTOPhotoBrowser:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  OTTOPhotoBrowser: 68c7a0142b9eca59fc67d7719d6a2a7112d02fe7
+  OTTOPhotoBrowser: 9d3886101de3a130a98fd2853e15fc02e4add06b
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
 PODFILE CHECKSUM: 05190a4c3243214386b1d18530180a9b65c60c0e
