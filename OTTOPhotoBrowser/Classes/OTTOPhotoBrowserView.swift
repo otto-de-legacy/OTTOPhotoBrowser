@@ -11,15 +11,15 @@ import SDWebImage
 
 public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     
-    private let PADDING: CGFloat = 10
-    private let TAG_OFFSET = 1000
-    
+    private let tagOffset = 1000
     private let pagingScrollView: UIScrollView
     private var visiblePages = Set<OTTOZoomingScrollView>()
     private var _currentPageIndex = 0
     private var isLastEventDoubleTapZoom = false
     private var _photos = [OTTOPhoto]()
     private var _passedPhotos = [OTTOPhoto]()
+    
+    public var padding: CGFloat = 10
     
     public var photos: [OTTOPhoto] {
         set {
@@ -88,15 +88,15 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         
         let visibleBounds = pagingScrollView.bounds
         
-        var firstIndex = Int(floor(visibleBounds.minX + PADDING * 2) / visibleBounds.width)
-        var lastIndex = Int(floor(visibleBounds.maxX - PADDING * 2 - 1) / visibleBounds.width)
+        var firstIndex = Int(floor(visibleBounds.minX + padding * 2) / visibleBounds.width)
+        var lastIndex = Int(floor(visibleBounds.maxX - padding * 2 - 1) / visibleBounds.width)
         
         firstIndex = max(0, min(numberOfPhotos() - 1, firstIndex))
         lastIndex = max(0, min(numberOfPhotos() - 1, lastIndex))
 
         var pageIndex = 0
         for page in visiblePages {
-            pageIndex = page.tag - TAG_OFFSET
+            pageIndex = page.tag - tagOffset
             if (pageIndex < firstIndex || pageIndex > lastIndex) {
                 visiblePages.remove(page)
                 page.prepareForReuse()
@@ -144,7 +144,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     
     private func configurePage(_ page: OTTOZoomingScrollView, forIndex index: Int) {
         page.frame = frameForPage(atIndex: index)
-        page.tag = TAG_OFFSET + index
+        page.tag = tagOffset + index
         page.photo = _photos[index]
     }
     
@@ -205,7 +205,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     }
     
     private func pageIndex(_ page: OTTOZoomingScrollView) -> Int {
-        return page.tag - TAG_OFFSET
+        return page.tag - tagOffset
     }
     
     private func isDisplayingPageForIndex(index: Int) -> Bool {
@@ -223,15 +223,15 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     private func frameForPage(atIndex index: Int) -> CGRect {
         let bounds = pagingScrollView.bounds
         var pageFrame = bounds
-        pageFrame.size.width -= 2 * PADDING
-        pageFrame.origin.x = (bounds.size.width * CGFloat(index)) + PADDING;
+        pageFrame.size.width -= 2 * padding
+        pageFrame.origin.x = (bounds.size.width * CGFloat(index)) + padding;
         return pageFrame
     }
     
     private func frameForPagingScrollView() -> CGRect {
         var frame = bounds
-        frame.origin.x -= PADDING
-        frame.size.width += 2*PADDING
+        frame.origin.x -= padding
+        frame.size.width += 2*padding
         return frame
     }
     
@@ -252,7 +252,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         _currentPageIndex = (_currentPageIndex % realNumberOfPhotos()) + realNumberOfPhotos()
         let pageFrame = frameForPage(atIndex: _currentPageIndex)
         
-        pagingScrollView.setContentOffset(CGPoint(x: pageFrame.origin.x - PADDING, y: 0), animated: false)
+        pagingScrollView.setContentOffset(CGPoint(x: pageFrame.origin.x - padding, y: 0), animated: false)
     }
     
     // MARK: UIScrollViewDelegate
