@@ -38,7 +38,8 @@ class ViewController: UIViewController, OTTOPhotoBrowserDelegate {
         case .doubleTapZoom: print("EVENT: double tap zoom")
         case .pinchout: print("EVENT: pinchout")
         case .pinchZoom: print("EVENT: pinchzoom")
-        case .tap: print("EVENT: tap")
+        case .tap: print("EVENT: tap -- show image index 2")
+            photoBrowser.showImage(index: 2)
         }
     }
     

@@ -37,6 +37,12 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         return _currentPageIndex % realNumberOfPhotos()
     }
     
+    public func showImage(index: Int) {
+        _currentPageIndex = index
+        centerContentOffsetToMiddleSegment()
+        didStartViewingPage(atIndex: index)
+    }
+    
     public weak var delegate: OTTOPhotoBrowserDelegate?
     
     override init(frame: CGRect) {
