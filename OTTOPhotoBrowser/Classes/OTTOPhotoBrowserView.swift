@@ -45,7 +45,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     
     public weak var delegate: OTTOPhotoBrowserDelegate?
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         pagingScrollView = UIScrollView()
         super.init(frame: frame)
     }
