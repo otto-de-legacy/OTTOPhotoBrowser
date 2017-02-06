@@ -19,6 +19,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     private var _photos = [OTTOPhoto]()
     private var _passedPhotos = [OTTOPhoto]()
     
+    public var margin: CGFloat = 0
     public var padding: CGFloat = 10
     
     public var photos: [OTTOPhoto] {
@@ -94,8 +95,8 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         
         let visibleBounds = pagingScrollView.bounds
         
-        var firstIndex = Int(floor(visibleBounds.minX + padding * 2) / visibleBounds.width)
-        var lastIndex = Int(floor(visibleBounds.maxX - padding * 2 - 1) / visibleBounds.width)
+        var firstIndex = Int(floor(visibleBounds.minX + margin * 2) / visibleBounds.width)
+        var lastIndex = Int(floor(visibleBounds.maxX - margin * 2 - 1) / visibleBounds.width)
         
         firstIndex = max(0, min(numberOfPhotos() - 1, firstIndex))
         lastIndex = max(0, min(numberOfPhotos() - 1, lastIndex))
@@ -229,15 +230,15 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     private func frameForPage(atIndex index: Int) -> CGRect {
         let bounds = pagingScrollView.bounds
         var pageFrame = bounds
-        pageFrame.size.width -= 2 * padding
-        pageFrame.origin.x = (bounds.size.width * CGFloat(index)) + padding;
+        pageFrame.size.width -= 2 * margin
+        pageFrame.origin.x = (bounds.size.width * CGFloat(index)) + margin;
         return pageFrame
     }
     
     private func frameForPagingScrollView() -> CGRect {
         var frame = bounds
-        frame.origin.x -= padding
-        frame.size.width += 2*padding
+        frame.origin.x += padding
+        frame.size.width -= 2 * padding
         return frame
     }
     
@@ -258,7 +259,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         _currentPageIndex = (_currentPageIndex % realNumberOfPhotos()) + realNumberOfPhotos()
         let pageFrame = frameForPage(atIndex: _currentPageIndex)
         
-        pagingScrollView.setContentOffset(CGPoint(x: pageFrame.origin.x - padding, y: 0), animated: false)
+        pagingScrollView.setContentOffset(CGPoint(x: pageFrame.origin.x - margin, y: 0), animated: false)
     }
     
     // MARK: UIScrollViewDelegate

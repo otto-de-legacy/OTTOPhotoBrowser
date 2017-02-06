@@ -25,7 +25,8 @@ class ViewController: UIViewController, OTTOPhotoBrowserDelegate {
 
         photoBrowser.delegate = self
         photoBrowser.photos = photos
-        photoBrowser.padding = 5
+        photoBrowser.padding = 12
+        photoBrowser.margin = 3
         
         updateCounterLabel()
     }
