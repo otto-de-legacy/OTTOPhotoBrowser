@@ -60,13 +60,6 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         photoImageView.isUserInteractionEnabled = true
         photoImageView.addGestureRecognizer(imageViewSingleTapRecognizer)
         photoImageView.addGestureRecognizer(imageViewDoubleTapRecognizer)
-        
-        let isLandscape = UIDeviceOrientationIsLandscape(UIDevice.current.orientation)
-        let screenBounds = UIScreen.main.bounds
-        let screenWidth = isLandscape ?  screenBounds.height : screenBounds.width
-        let screenHeight = isLandscape ? screenBounds.width : screenBounds.height
-        let progressViewFrame = CGRect(x: (screenWidth - 35) / 2, y: (screenHeight - 35) - 2, width: 35, height: 35)
-        
         addSubview(tapView)
         addSubview(photoImageView)
         
