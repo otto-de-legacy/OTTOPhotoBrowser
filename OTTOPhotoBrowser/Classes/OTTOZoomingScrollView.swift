@@ -16,6 +16,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         }
     }
     
+    var padding: CGFloat = 0
     weak var photoBrowserView: OTTOPhotoBrowserView?
     private let activityIndicatorView: UIActivityIndicatorView
     private let tapView: UIView
@@ -86,7 +87,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
             photoImageView.isHidden = false
             
             let photoImageViewFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-            photoImageView.frame = photoImageViewFrame
+            photoImageView.frame = photoImageViewFrame.insetBy(dx: padding, dy: padding)
             contentSize = photoImageViewFrame.size
             
             setMaxMinZoomScalesForCurrentBounds()
@@ -118,7 +119,8 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         minimumZoomScale = minScale;
         zoomScale = minScale;
         
-        photoImageView.frame = CGRect(x: 0, y: 0, width: photoImageView.frame.size.width, height: photoImageView.frame.size.height)
+        photoImageView.frame = CGRect(x: 0, y: 0, width: photoImageView.frame.size.width, height: photoImageView.frame.size.height).insetBy(dx: padding, dy: padding)
+        
         setNeedsLayout()
     }
     

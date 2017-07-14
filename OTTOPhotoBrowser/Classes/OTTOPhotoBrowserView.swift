@@ -20,7 +20,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     private var _passedPhotos = [OTTOPhoto]()
     
     public var margin: CGFloat = 0
-    public var padding: CGFloat = 10
+    public var padding: CGFloat = 0
     
     public var photos: [OTTOPhoto] {
         set {
@@ -77,7 +77,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     override public func layoutSubviews() {
         super.layoutSubviews()
         
-        pagingScrollView.frame = frameForPagingScrollView()
+        pagingScrollView.frame = bounds
         pagingScrollView.contentSize = contentSizeForPagingScrollView()
         
         for page in visiblePages {
@@ -119,6 +119,7 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
                 let page = OTTOZoomingScrollView(photoBrowserView: self)
                 page.backgroundColor = UIColor.clear
                 page.isOpaque = true
+                page.padding = padding
                 
                 configurePage(page, forIndex: index)
                 visiblePages.insert(page)
@@ -233,13 +234,6 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
         pageFrame.size.width -= 2 * margin
         pageFrame.origin.x = (bounds.size.width * CGFloat(index)) + margin;
         return pageFrame
-    }
-    
-    private func frameForPagingScrollView() -> CGRect {
-        var frame = bounds
-        frame.origin.x += padding
-        frame.size.width -= 2 * padding
-        return frame
     }
     
     private func contentSizeForPagingScrollView() -> CGSize {
