@@ -77,11 +77,11 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
             return
         }
         
-        minimumZoomScale = 1
-        maximumZoomScale = 1
-        zoomScale = 1
-        
         if let image = photoBrowserView?.imageForPhoto(photo: photo), image.size.width > 0, image.size.height > 0 {
+            minimumZoomScale = 1
+            maximumZoomScale = 1
+            zoomScale = 1
+            
             photoImageView.image = image
             photoImageView.isHidden = false
             
