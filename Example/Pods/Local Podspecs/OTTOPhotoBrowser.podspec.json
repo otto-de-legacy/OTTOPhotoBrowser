@@ -1,6 +1,6 @@
 {
   "name": "OTTOPhotoBrowser",
-  "version": "1.4",
+  "version": "1.6",
   "summary": "A short description of OTTOPhotoBrowser.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/<GITHUB_USERNAME>/OTTOPhotoBrowser",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/<GITHUB_USERNAME>/OTTOPhotoBrowser.git",
-    "tag": "1.4"
+    "tag": "1.6"
   },
   "platforms": {
     "ios": "8.0"

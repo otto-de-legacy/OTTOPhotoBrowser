@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OTTOPhotoBrowser'
-  s.version          = '1.5.3'
+  s.version          = '1.6'
   s.summary          = 'A short description of OTTOPhotoBrowser.'
 
 # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'OTTOPhotoBrowser/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'OTTOPhotoBrowser' => ['OTTOPhotoBrowser/Assets/*.png']
   # }

@@ -172,11 +172,11 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
     
     // MARK: Tap Detection
     
-    func handleSingleTap(gestureRecognizer: UITapGestureRecognizer) {
+    @objc func handleSingleTap(gestureRecognizer: UITapGestureRecognizer) {
         photoBrowserView?.onTap()
     }
     
-    func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
+    @objc func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
         let touchPoint = gestureRecognizer.location(in: photoImageView)
         if zoomScale == maximumZoomScale {
             setZoomScale(minimumZoomScale, animated: true)

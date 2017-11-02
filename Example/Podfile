@@ -1,4 +1,5 @@
 use_frameworks!
+inhibit_all_warnings!
 
 target 'OTTOPhotoBrowser_Example' do
   pod 'OTTOPhotoBrowser', :path => '../'
@@ -7,6 +8,6 @@ target 'OTTOPhotoBrowser_Example' do
   target 'OTTOPhotoBrowser_Tests' do
     inherit! :search_paths
 
-    
+
   end
 end
