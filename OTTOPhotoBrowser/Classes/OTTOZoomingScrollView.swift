@@ -58,6 +58,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         let imageViewDoubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(gestureRecognizer:)))
         imageViewDoubleTapRecognizer.numberOfTapsRequired = 2
         imageViewSingleTapRecognizer.require(toFail: imageViewDoubleTapRecognizer)
+        photoImageView.contentMode = .scaleAspectFit
         photoImageView.isUserInteractionEnabled = true
         photoImageView.addGestureRecognizer(imageViewSingleTapRecognizer)
         photoImageView.addGestureRecognizer(imageViewDoubleTapRecognizer)
@@ -85,9 +86,8 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
             photoImageView.image = image
             photoImageView.isHidden = false
             
-            let photoImageViewFrame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-            photoImageView.frame = photoImageViewFrame.insetBy(dx: padding, dy: padding)
-            contentSize = photoImageViewFrame.size
+            photoImageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+            contentSize = photoImageView.frame.size
             
             setMaxMinZoomScalesForCurrentBounds()
             activityIndicatorView.stopAnimating()
@@ -118,7 +118,10 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         minimumZoomScale = minScale;
         zoomScale = minScale;
         
-        photoImageView.frame = CGRect(x: 0, y: 0, width: photoImageView.frame.size.width, height: photoImageView.frame.size.height).insetBy(dx: padding, dy: padding)
+        let paddingX =  photoImageView.frame.size.width > padding * 4 ? padding : 0
+        let paddingY =  photoImageView.frame.size.height > padding * 4 ? padding : 0
+        
+        photoImageView.frame = CGRect(x: 0, y: 0, width: photoImageView.frame.size.width, height: photoImageView.frame.size.height).insetBy(dx: paddingX, dy: paddingY)
         
         setNeedsLayout()
     }
