@@ -7,7 +7,5 @@ target 'OTTOPhotoBrowser_Example' do
 
   target 'OTTOPhotoBrowser_Tests' do
     inherit! :search_paths
-
-
   end
 end

@@ -191,8 +191,8 @@ public class OTTOPhotoBrowserView: UIView, UIScrollViewDelegate {
     }
     
     private func loadAndDisplay(photo: OTTOPhoto) {
-        let manager = SDWebImageManager.shared()!
-        let _ = manager.downloadImage(with: photo.url, options: .retryFailed, progress: nil, completed: { (image, error, cacheType, finished, imageUrl) in
+        let manager = SDWebImageManager.shared()
+        let _ = manager.loadImage(with: photo.url, options: .retryFailed, progress: nil, completed: { (image, _, error, cacheType, finished, imageUrl) in
             guard let image = image else { return }
             photo.image = image
             

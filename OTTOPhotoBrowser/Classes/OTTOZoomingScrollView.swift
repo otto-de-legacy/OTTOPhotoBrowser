@@ -40,7 +40,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         
         super.init(frame: CGRect.zero)
         
-        activityIndicatorView.activityIndicatorViewStyle = .gray
+        activityIndicatorView.style = .gray
         activityIndicatorView.hidesWhenStopped = true
         addSubview(activityIndicatorView)
         
@@ -69,7 +69,7 @@ class OTTOZoomingScrollView: UIScrollView, UIScrollViewDelegate {
         delegate = self
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
-        decelerationRate = UIScrollViewDecelerationRateFast
+        decelerationRate = UIScrollView.DecelerationRate.fast
         autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
